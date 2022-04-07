@@ -1,0 +1,215 @@
+507@507-16 MINGW64 ~/repaso (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        css/
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git add .
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .gitignore
+        new file:   css/estilos.css
+        new file:   index.html
+
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git commit -m "version 1 Inicio proyecto"
+[master (root-commit) 6c5d687] version 1 Inicio proyecto
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 .gitignore
+ create mode 100644 css/estilos.css
+ create mode 100644 index.html
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git log
+commit 6c5d687d11a03e8a8a90081764aae502bef7560b (HEAD -> master)
+Author: Didier <dmeneses1988@gmail.com>
+Date:   Sat Feb 5 08:05:12 2022 -0500
+
+    version 1 Inicio proyecto
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        img/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git add .
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+        new file:   img/antioquia.jpg
+        modified:   index.html
+
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git commit -m "version 2 index sin css"
+[master f4e4478] version 2 index sin css
+ 3 files changed, 30 insertions(+)
+ create mode 100644 img/antioquia.jpg
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git log
+commit f4e44783e8407edcffe08ab13e88676a0db16829 (HEAD -> master)
+Author: Didier <dmeneses1988@gmail.com>
+Date:   Sat Feb 5 08:19:35 2022 -0500
+
+    version 2 index sin css
+
+commit 6c5d687d11a03e8a8a90081764aae502bef7560b
+Author: Didier <dmeneses1988@gmail.com>
+Date:   Sat Feb 5 08:05:12 2022 -0500
+
+    version 1 Inicio proyecto
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git log --all --oneline
+f4e4478 (HEAD -> master) version 2 index sin css
+6c5d687 version 1 Inicio proyecto
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git checkout 6c5d687
+Note: switching to '6c5d687'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 6c5d687 version 1 Inicio proyecto
+
+507@507-16 MINGW64 ~/repaso ((6c5d687...))
+$ git checkout f4e4478
+Previous HEAD position was 6c5d687 version 1 Inicio proyecto
+HEAD is now at f4e4478 version 2 index sin css
+
+507@507-16 MINGW64 ~/repaso ((f4e4478...))
+$ git branch "developed"
+
+507@507-16 MINGW64 ~/repaso ((f4e4478...))
+$ git log --all --oneline
+f4e4478 (HEAD, master, developed) version 2 index sin css
+6c5d687 version 1 Inicio proyecto
+
+507@507-16 MINGW64 ~/repaso ((f4e4478...))
+$ git checkout developed
+Switched to branch 'developed'
+M       css/estilos.css
+
+507@507-16 MINGW64 ~/repaso (developed)
+$ git status
+On branch developed
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   css/estilos.css
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+507@507-16 MINGW64 ~/repaso (developed)
+$ git add .
+
+507@507-16 MINGW64 ~/repaso (developed)
+$ git log --all --oneline
+f4e4478 (HEAD -> developed, master) version 2 index sin css
+6c5d687 version 1 Inicio proyecto
+
+507@507-16 MINGW64 ~/repaso (developed)
+$ git commit -m "version 1 inicio developed"
+[developed 37d8f03] version 1 inicio developed
+ 2 files changed, 5 insertions(+)
+
+507@507-16 MINGW64 ~/repaso (developed)
+$ git log --all --oneline
+37d8f03 (HEAD -> developed) version 1 inicio developed
+f4e4478 (master) version 2 index sin css
+6c5d687 version 1 Inicio proyecto
+
+507@507-16 MINGW64 ~/repaso (developed)
+$ git checkout master
+Switched to branch 'master'
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git checkout developed
+Switched to branch 'developed'
+
+507@507-16 MINGW64 ~/repaso (developed)
+$ git checkout master
+Switched to branch 'master'
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git merge developed
+Updating f4e4478..37d8f03
+Fast-forward
+ css/estilos.css | 4 ++++
+ index.html      | 1 +
+ 2 files changed, 5 insertions(+)
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git log --all --oneline
+37d8f03 (HEAD -> master, developed) version 1 inicio developed
+f4e4478 version 2 index sin css
+6c5d687 version 1 Inicio proyecto
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git branch
+  developed
+* master
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git branch -r
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git log --oneline
+37d8f03 (HEAD -> master, developed) version 1 inicio developed
+f4e4478 version 2 index sin css
+6c5d687 version 1 Inicio proyecto
+
+507@507-16 MINGW64 ~/repaso (master)
+$ git log --all --oneline
+37d8f03 (HEAD -> master, developed) version 1 inicio developed
+f4e4478 version 2 index sin css
+6c5d687 version 1 Inicio proyecto
+
+507@507-16 MINGW64 ~/repaso (master)
+$
